@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://daegwql3s6upb"]
+[gd_scene load_steps=10 format=3 uid="uid://daegwql3s6upb"]
 
 [ext_resource type="PackedScene" uid="uid://cecebrqux3cep" path="res://scene/idle_body_2d.tscn" id="1_mn221"]
 [ext_resource type="Texture2D" uid="uid://cbej1gbwpdab1" path="res://asset/sprites/world_tileset.png" id="2_wwmeu"]
 [ext_resource type="PackedScene" uid="uid://cgh6etimp1411" path="res://scene/platform.tscn" id="3_3o4d8"]
+[ext_resource type="PackedScene" uid="uid://8rp53x5i57hx" path="res://scene/coin.tscn" id="4_i2t3n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j42qn"]
 texture = ExtResource("2_wwmeu")
@@ -428,6 +429,21 @@ texture = ExtResource("2_wwmeu")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_j42qn")
 
+[sub_resource type="Animation" id="Animation_m55sc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-440, -179)]
+}
+
 [sub_resource type="Animation" id="Animation_t210n"]
 resource_name = "move_platform"
 length = 2.0
@@ -445,21 +461,6 @@ tracks/0/keys = {
 "values": [Vector2(-440, -179), Vector2(-296, -179)]
 }
 
-[sub_resource type="Animation" id="Animation_m55sc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-440, -179)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ivm8w"]
 _data = {
 "RESET": SubResource("Animation_m55sc"),
@@ -473,6 +474,8 @@ position = Vector2(-334, 2)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(3, 3)
+limit_bottom = 140
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -491,3 +494,18 @@ libraries = {
 "": SubResource("AnimationLibrary_ivm8w")
 }
 autoplay = "move_platform"
+
+[node name="coin" parent="." instance=ExtResource("4_i2t3n")]
+position = Vector2(-90, -25)
+
+[node name="coin2" parent="." instance=ExtResource("4_i2t3n")]
+position = Vector2(-75, -25)
+
+[node name="coin3" parent="." instance=ExtResource("4_i2t3n")]
+position = Vector2(-264, -57)
+
+[node name="coin4" parent="." instance=ExtResource("4_i2t3n")]
+position = Vector2(-262, -94)
+
+[node name="coin5" parent="." instance=ExtResource("4_i2t3n")]
+position = Vector2(-60, -24)
