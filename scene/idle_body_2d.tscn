@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uy4ef"]
-radius = 9.05539
+radius = 7.07107
 
 [node name="player" type="CharacterBody2D"]
 z_index = 5
@@ -48,11 +48,12 @@ collision_layer = 2
 script = ExtResource("1_rqpm7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(9.53674e-07, -7)
-scale = Vector2(1.90625, 1.46875)
+position = Vector2(0.624998, -3.125)
+scale = Vector2(0.773438, 0.804687)
 sprite_frames = SubResource("SpriteFrames_j3ybw")
 animation = &"idle"
 autoplay = "idle"
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_uy4ef")
